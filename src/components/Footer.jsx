@@ -53,7 +53,7 @@ export default function Footer({ lang }) {
             <strong>{text.coverage}</strong>
           </div>
 
-          <a className="footer-cta" href="mailto:info@ezcargo.com">
+          <a className="footer-cta" href="mailto:ezcargologistics@hotmail.com">
             {text.cta}
           </a>
         </div>
