@@ -1,5 +1,7 @@
 import './Footer.css'
 
+const brandLockup = `${import.meta.env.BASE_URL}branding/ezcargo-logo-lockup.png`
+
 const copy = {
   EN: {
     title: 'Ready to run a more organized dispatch operation?',
@@ -32,7 +34,7 @@ export default function Footer({ lang }) {
     <footer className="footer" id="contact">
       <div className="footer-inner">
         <div className="footer-copy">
-          <img className="footer-logo" src="/branding/ezcargo-logo-lockup.png" alt="EZCargo Logistics logo" />
+          <img className="footer-logo" src={brandLockup} alt="EZCargo Logistics logo" />
           <h2>{text.title}</h2>
           <p>{text.text}</p>
         </div>

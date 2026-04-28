@@ -1,5 +1,7 @@
 import './Navbar.css'
 
+const brandWordmark = `${import.meta.env.BASE_URL}branding/ezcargo-wordmark.png`
+
 const copy = {
   EN: {
     services: 'Services',
@@ -24,7 +26,7 @@ export default function Navbar({ lang, setLang }) {
     <header className="navbar-wrap">
       <nav className="navbar">
         <a className="brand" href="#top" aria-label="EZCARGO LOGISTICS LLC home">
-          <img className="brand-logo" src="/branding/ezcargo-wordmark.png" alt="EZCargo Logistics logo" />
+          <img className="brand-logo" src={brandWordmark} alt="EZCargo Logistics logo" />
         </a>
 
         <div className="nav-actions">

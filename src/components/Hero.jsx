@@ -1,6 +1,8 @@
 import heroImage from '../assets/hero.png'
 import './Hero.css'
 
+const brandLockup = `${import.meta.env.BASE_URL}branding/ezcargo-logo-lockup.png`
+
 const copy = {
   EN: {
     badge: 'U.S.-based dispatch for owner-operators and fleets',
@@ -44,7 +46,7 @@ export default function Hero({ lang }) {
       <div className="hero-inner">
         <div className="hero-copy">
           <div className="hero-logo-frame">
-            <img className="hero-logo" src="/branding/ezcargo-logo-lockup.png" alt="EZCargo Logistics brand logo" />
+            <img className="hero-logo" src={brandLockup} alt="EZCargo Logistics brand logo" />
           </div>
           <span className="hero-badge">{text.badge}</span>
           <h1>{text.title}</h1>
