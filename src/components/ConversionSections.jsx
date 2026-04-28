@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import './ConversionSections.css'
 
-const phoneNumber = '3855676354'
-const textNumber = '3855676354'
+// const phoneNumber = '3855676354'
+// const textNumber = '3855676354'
 
 const copy = {
   EN: {
