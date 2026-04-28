@@ -243,6 +243,24 @@
     align-items: start;
   }
 
+  .showcase-section {
+    background:
+      radial-gradient(circle at top right, rgba(241, 243, 246, 0.18), transparent 34%),
+      linear-gradient(180deg, #10284d 0 38%, #f4f7fb 38% 100%);
+  }
+
+  .showcase-section .section-heading h2 {
+    color: #ffffff !important;
+  }
+
+  .showcase-section .section-heading p {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .showcase-section .section-kicker {
+    color: #ffffff !important;
+  }
+
   .showcase-track {
     grid-auto-columns: minmax(280px, 84%);
   }
