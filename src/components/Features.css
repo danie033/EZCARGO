@@ -17,6 +17,17 @@
 .process-card {
   padding: 28px;
   border-radius: 18px;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.service-card:hover,
+.process-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 87, 210, 0.12);
+  box-shadow: 0 24px 56px rgba(15, 33, 62, 0.12);
 }
 
 .service-card h3,

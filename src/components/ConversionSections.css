@@ -1,0 +1,250 @@
+.pricing-section {
+  background:
+    radial-gradient(circle at left top, rgba(38, 103, 255, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(7, 20, 38, 0.02));
+}
+
+.pricing-shell {
+  display: grid;
+  gap: 30px;
+}
+
+.pricing-heading {
+  margin-bottom: 0;
+}
+
+.pricing-grid,
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.pricing-card,
+.metric-card,
+.faq-item {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(11, 32, 63, 0.08);
+  box-shadow: 0 20px 48px rgba(15, 33, 62, 0.08);
+}
+
+.pricing-card {
+  padding: 28px;
+  border-radius: 22px;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.pricing-card:hover,
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 87, 210, 0.14);
+  box-shadow: 0 28px 56px rgba(12, 33, 63, 0.12);
+}
+
+.pricing-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f57d2, #5ea2ff);
+  color: #fff;
+  font-size: 0.94rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.pricing-card h3,
+.metric-card strong {
+  margin: 18px 0 0;
+  color: #0b203f;
+}
+
+.pricing-card h3 {
+  font-size: 1.24rem;
+  line-height: 1.3;
+}
+
+.pricing-card p {
+  margin: 14px 0 0;
+  color: #607089;
+  line-height: 1.72;
+}
+
+.pricing-cta,
+.faq-cta {
+  min-height: 54px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.pricing-cta {
+  width: fit-content;
+  padding: 0 24px;
+  background: #0b203f;
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(11, 32, 63, 0.18);
+}
+
+.pricing-cta:hover,
+.faq-cta:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.pricing-cta:hover {
+  background: #0f57d2;
+  box-shadow: 0 22px 44px rgba(15, 87, 210, 0.22);
+}
+
+.metric-card {
+  padding: 30px 28px;
+  border-radius: 24px;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  line-height: 0.95;
+}
+
+.metric-card span {
+  display: block;
+  margin-top: 12px;
+  color: #607089;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.faq-heading {
+  margin-bottom: 0;
+  position: sticky;
+  top: 120px;
+}
+
+.faq-cta {
+  margin-top: 24px;
+  padding: 0 22px;
+  border: 1px solid rgba(11, 32, 63, 0.12);
+  background: #fff;
+  color: #0b203f;
+  box-shadow: 0 16px 34px rgba(15, 33, 62, 0.08);
+}
+
+.faq-cta:hover {
+  border-color: rgba(15, 87, 210, 0.24);
+  color: #0f57d2;
+}
+
+.faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.faq-item {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 24px 26px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  text-align: left;
+  color: #0b203f;
+  cursor: pointer;
+}
+
+.faq-trigger span:first-child {
+  font-size: 1.06rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.faq-symbol {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 87, 210, 0.08);
+  color: #0f57d2;
+  font-size: 1.35rem;
+}
+
+.faq-panel {
+  padding: 0 26px 24px;
+}
+
+.faq-panel p {
+  margin: 0;
+  color: #607089;
+  line-height: 1.76;
+}
+
+.faq-item.is-open {
+  border-color: rgba(15, 87, 210, 0.16);
+  box-shadow: 0 24px 52px rgba(15, 33, 62, 0.12);
+}
+
+@media (max-width: 980px) {
+  .pricing-grid,
+  .metrics-grid,
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-heading {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-card,
+  .metric-card {
+    padding: 24px;
+  }
+
+  .faq-trigger {
+    padding: 20px 20px 18px;
+  }
+
+  .faq-panel {
+    padding: 0 20px 20px;
+  }
+
+  .pricing-cta,
+  .faq-cta {
+    width: 100%;
+  }
+}

@@ -1,5 +1,8 @@
 .page-shell {
+  --navbar-offset: 88px;
+  --hero-top-extra: 0px;
   min-height: 100vh;
+  padding-top: var(--navbar-offset);
   background:
     radial-gradient(circle at top, rgba(46, 109, 255, 0.16), transparent 30%),
     linear-gradient(180deg, #081324 0%, #0d1b2f 18%, #f4f7fb 18%, #f4f7fb 100%);
@@ -48,11 +51,25 @@
 }
 
 @media (max-width: 768px) {
+  .page-shell {
+    --navbar-offset: 76px;
+  }
+
+  .page-shell.is-at-top {
+    --hero-top-extra: 96px;
+  }
+
   .section {
     padding: 72px 18px;
   }
 
   .section-heading {
     margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell.is-at-top {
+    --hero-top-extra: 118px;
   }
 }

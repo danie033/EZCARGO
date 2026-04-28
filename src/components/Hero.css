@@ -1,6 +1,6 @@
 .hero {
   min-height: min(860px, calc(100vh - 24px));
-  margin-top: -92px;
+  margin-top: calc(var(--navbar-offset) * -1);
   padding: 180px 24px 120px;
   background-position: center;
   background-size: cover;
@@ -91,6 +91,12 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
 }
 
 .primary-btn {
@@ -103,6 +109,20 @@
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.26);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.primary-btn:hover {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24);
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.42);
 }
 
 .hero-stats {
@@ -134,7 +154,7 @@
 @media (max-width: 900px) {
   .hero {
     min-height: auto;
-    padding: 150px 18px 84px;
+    padding: calc(150px + var(--hero-top-extra)) 18px 84px;
   }
 
   .hero-logo-frame {

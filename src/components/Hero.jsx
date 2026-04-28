@@ -12,9 +12,9 @@ const copy = {
     primary: 'Request a Dispatch Call',
     secondary: 'See Services',
     stats: [
-      { value: '24/7', label: 'dispatch coverage' },
-      { value: 'Dry Van', label: 'flatbed, reefer, power only' },
-      { value: 'Dedicated', label: 'personalized dispatch' }
+      { value: '24/7', label: 'Dispatch Coverage' },
+      { value: 'Flatbed', label: 'Dry Van, Reefer, Power Only & more' },
+      { value: 'Dedicated', label: 'Personalized Dispatch' }
     ]
   },
   ES: {
@@ -26,8 +26,8 @@ const copy = {
     secondary: 'Ver servicios',
     stats: [
       { value: '24/7', label: 'cobertura de despacho' },
-      { value: 'Dry Van', label: 'flatbed, reefer y power only' },
-      { value: 'Dedicado', label: 'soporte personalizado' }
+      { value: 'Flatbed', label: 'Dry Van,Rreefer, Power only y mas' },
+      { value: 'Dedicado', label: 'Soporte Personalizado' }
     ]
   }
 }
