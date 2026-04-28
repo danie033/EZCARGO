@@ -243,24 +243,6 @@
     align-items: start;
   }
 
-  .showcase-section {
-    background:
-      radial-gradient(circle at top right, rgba(241, 243, 246, 0.18), transparent 34%),
-      linear-gradient(180deg, #10284d 0 38%, #f4f7fb 38% 100%);
-  }
-
-  .showcase-section .section-heading h2 {
-    color: #ffffff !important;
-  }
-
-  .showcase-section .section-heading p {
-    color: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .showcase-section .section-kicker {
-    color: #ffffff !important;
-  }
-
   .showcase-track {
     grid-auto-columns: minmax(280px, 84%);
   }
@@ -269,8 +251,25 @@
 @media (max-width: 640px) {
   .showcase-section {
     padding-top: 84px;
+    background:
+      radial-gradient(circle at top right, rgba(217, 219, 221, 0.18), transparent 34%),
+      linear-gradient(180deg, #10284d 0 38%, #f4f7fb 38% 100%);
   }
 
+  .showcase-section .section-kicker {
+    background: #0f57d2;
+    color: #120808;
+    border: 1px solid rgba(11, 32, 63, 0.08);
+  }
+
+  .showcase-section .section-heading h2 {
+  color: white;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.showcase-section .section-heading p {
+  color: rgba(255, 255, 255, 0.9);
+}
   .carousel-btn {
     width: 48px;
     height: 48px;

@@ -14,7 +14,7 @@ const sliderContent = {
     kicker: 'Equipment Focus',
     title: 'Trailer coverage presented with the same polish your operation expects from dispatch.',
     description:
-      'From dry van lanes to temperature-controlled freight, we support the equipment owner-operators rely on most. The carousel keeps the lineup easy to scan on mobile and desktop.',
+      'From dry van lanes to temperature-controlled freight, we support the equipment owner-operators rely on most.',
     previous: 'Previous trailers',
     next: 'Next trailers',
     slides: [
@@ -71,7 +71,7 @@ const sliderContent = {
     kicker: 'Cobertura de equipos',
     title: 'Cobertura de remolques presentada con el nivel profesional que su operacion espera del despacho.',
     description:
-      'Desde rutas dry van hasta carga con temperatura controlada, apoyamos los equipos que mas usan los owner-operators. El carrusel mantiene la informacion clara en movil y escritorio.',
+      'Desde rutas dry van hasta carga con temperatura controlada, apoyamos los equipos que mas usan los owner-operators.',
     previous: 'Remolques anteriores',
     next: 'Siguientes remolques',
     slides: [
