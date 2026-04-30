@@ -82,7 +82,7 @@ const sliderContent = {
       },
       {
         title: 'Flatbed',
-        detail: 'Carga open-deck con mejor control de securement y tiempos de entrega.',
+        detail: 'Carga open-deck con mejor control de mercancia y tiempos de entrega.',
         image: trailerImages.flatbed
       },
       {

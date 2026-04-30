@@ -30,7 +30,7 @@ const copy = {
     resultsKicker: 'Real Numbers',
     resultsTitle: 'A dispatch operation measured by output, consistency, and driver trust.',
     resultsText:
-      'These placeholder numbers show the kind of proof points serious owner-operators want to see before they call.',
+      'These numbers represent the dedication and professionalism of our organization.',
     metrics: [
       { value: 8500, prefix: '$', suffix: '', label: 'avg weekly gross' },
       { value: 150, prefix: '', suffix: '+', label: 'loads booked weekly' },
@@ -68,13 +68,13 @@ const copy = {
         icon: '01',
         title: 'Sin deducciones ocultas',
         description:
-          'Su settlement no debe reducirse con cargos sorpresa, tarifas dudosas o porcentajes extra.'
+          'Su pago no debe reducirse con cargos sorpresa, tarifas dudosas o porcentajes extra.'
       },
       {
         icon: '02',
-        title: 'Usted conserva la rate confirmation completa',
+        title: 'Usted conserva la confirmacion de carga original',
         description:
-          'Cada carga reservada se mantiene transparente. Usted ve la rate confirmation y sabe lo que el broker acepto pagar.'
+          'Cada carga reservada se mantiene transparente. Usted ve la confirmacion de carga y sabe lo que el broker acepto pagar.'
       },
       {
         icon: '03',
@@ -86,11 +86,11 @@ const copy = {
     resultsKicker: 'Resultados',
     resultsTitle: 'Una operacion de despacho medida por produccion, consistencia y confianza.',
     resultsText:
-      'Estos numeros de ejemplo muestran el tipo de pruebas que un owner-operator serio quiere ver antes de llamar.',
+      'Estos numeros representan dedicacion y seriedad de nuestra organizacion.',
     metrics: [
       { value: 8500, prefix: '$', suffix: '', label: 'promedio bruto semanal' },
-      { value: 250, prefix: '', suffix: '+', label: 'cargas reservadas por semana' },
-      { value: 120, prefix: '', suffix: '+', label: 'conductores activos' }
+      { value: 150, prefix: '', suffix: '+', label: 'cargas reservadas por semana' },
+      { value: 75, prefix: '', suffix: '+', label: 'conductores activos' }
     ],
     faqKicker: 'Preguntas Comunes',
     faqTitle: 'Respuestas que reducen dudas antes de la primera llamada.',

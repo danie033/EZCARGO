@@ -26,7 +26,7 @@ const copy = {
     secondary: 'Ver servicios',
     stats: [
       { value: '24/7', label: 'cobertura de despacho' },
-      { value: 'Flatbed', label: 'Dry Van,Rreefer, Power only y mas' },
+      { value: 'Flatbed', label: 'Dry Van, Reefer, Power only y mas' },
       { value: 'Dedicado', label: 'Soporte Personalizado' }
     ]
   }
