@@ -46,14 +46,14 @@ export default function Footer({ lang }) {
           </div>
           <div className="contact-row">
             <span>{text.emailLabel}</span>
-            <strong>dfigueroa@ezcargologistics.net</strong>
+            <strong>quotes@ezcargologistics.net</strong>
           </div>
           <div className="contact-row">
             <span>{text.coverageLabel}</span>
             <strong>{text.coverage}</strong>
           </div>
 
-          <a className="footer-cta" href="mailto:dfigueroa@ezcargologistics.net">
+          <a className="footer-cta" href="mailto:quotes@ezcargologistics.net">
             {text.cta}
           </a>
         </div>
