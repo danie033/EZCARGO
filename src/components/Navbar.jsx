@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import './Navbar.css'
 
 const brandWordmark = `${import.meta.env.BASE_URL}branding/ezcargo-wordmark.png`
@@ -21,6 +22,52 @@ const copy = {
 
 export default function Navbar({ lang, setLang }) {
   const text = copy[lang]
+  const nextLang = lang === 'EN' ? 'ES' : 'EN'
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined
+
+    let cleanupTimer = 0
+    let activeButton = null
+
+    const clearOnboarding = () => {
+      if (!activeButton) return
+      activeButton.classList.remove('is-onboarding', 'is-reduced-motion')
+      activeButton = null
+    }
+
+    const startOnboarding = () => {
+      const button = document.querySelector('.language-button')
+      if (!button) {
+        console.warn('Language onboarding: .language-button was not found.')
+        return
+      }
+
+      activeButton = button
+      activeButton.classList.add('is-onboarding')
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (reducedMotion) {
+        activeButton.classList.add('is-reduced-motion')
+        cleanupTimer = window.setTimeout(clearOnboarding, 3000)
+        return
+      }
+
+      cleanupTimer = window.setTimeout(clearOnboarding, 10000)
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', startOnboarding, { once: true })
+    } else {
+      startOnboarding()
+    }
+
+    return () => {
+      document.removeEventListener('DOMContentLoaded', startOnboarding)
+      window.clearTimeout(cleanupTimer)
+      clearOnboarding()
+    }
+  }, [])
 
   return (
     <header className="navbar-wrap">
@@ -41,8 +88,13 @@ export default function Navbar({ lang, setLang }) {
             {text.cta}
           </a>
 
-          <button className="lang-btn" onClick={() => setLang(lang === 'EN' ? 'ES' : 'EN')}>
-            {lang}
+          <button
+            className="lang-btn language-button"
+            type="button"
+            aria-label={`Switch language to ${lang === 'EN' ? 'Spanish' : 'English'}`}
+            onClick={() => setLang(nextLang)}
+          >
+            {nextLang}
           </button>
         </div>
       </nav>
