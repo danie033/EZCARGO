@@ -1,6 +1,8 @@
 .page-shell {
   --navbar-offset: 88px;
   --hero-top-extra: 0px;
+  --cta-gap: 10px;
+  --cta-height: 72px;
   min-height: 100vh;
   padding-top: var(--navbar-offset);
   background:
@@ -9,7 +11,7 @@
 }
 
 .section {
-  padding: 96px 24px;
+  padding: 80px 24px;
 }
 
 .section-inner {
@@ -39,8 +41,8 @@
 .section-heading h2 {
   margin: 0;
   color: #0b203f;
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  line-height: 1.05;
+  font-size: clamp(1.75rem, 2.6vw, 2.6rem);
+  line-height: 1.1;
 }
 
 .section-heading p {
@@ -55,10 +57,6 @@
     --navbar-offset: 76px;
   }
 
-  .page-shell.is-at-top {
-    --hero-top-extra: 96px;
-  }
-
   .section {
     padding: 72px 18px;
   }
@@ -68,8 +66,3 @@
   }
 }
 
-@media (max-width: 640px) {
-  .page-shell.is-at-top {
-    --hero-top-extra: 118px;
-  }
-}

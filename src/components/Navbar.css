@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 12px 18px;
+  padding: 10px 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 18px;
   background: rgba(8, 19, 36, 0.78);
@@ -29,7 +29,7 @@
 }
 
 .brand-logo {
-  width: 220px;
+  width: 95px;
   height: auto;
   display: block;
   border-radius: 5%;
@@ -196,19 +196,54 @@
   }
 }
 
+/* Keep the navbar on one line on narrower screens (or zoomed-in browsers)
+   by shrinking it instead of wrapping onto a second row. */
 @media (max-width: 980px) {
   .navbar {
-    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 14px;
+  }
+
+  .brand-logo {
+    width: 95px;
   }
 
   .nav-actions {
-    width: 100%;
-    justify-content: space-between;
+    gap: 8px;
   }
 
   .nav-links {
-    gap: 16px;
-    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .nav-cta {
+    padding: 0 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 860px) {
+  .brand-logo {
+    width: 95px;
+
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .nav-cta {
+    font-size: 0.85rem;
   }
 }
 
@@ -218,7 +253,7 @@
   }
 
   .brand-logo {
-    width: 176px;
+    width: 95px;
   }
 
   .nav-links,

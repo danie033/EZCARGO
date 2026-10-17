@@ -42,11 +42,11 @@ export default function Footer({ lang }) {
         <div className="contact-panel">
           <div className="contact-row">
             <span>{text.phoneLabel}</span>
-            <strong>(385) 567-6354</strong>
+            <a href="tel:+13855676354">(385) 567-6354</a>
           </div>
           <div className="contact-row">
             <span>{text.emailLabel}</span>
-            <strong>quotes@ezcargologistics.net</strong>
+            <a href="mailto:quotes@ezcargologistics.net">quotes@ezcargologistics.net</a>
           </div>
           <div className="contact-row">
             <span>{text.coverageLabel}</span>

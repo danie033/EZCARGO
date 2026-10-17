@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './Showcase.css'
 
 const trailerImages = {
@@ -141,50 +141,139 @@ function StarRow() {
 export default function Showcase({ lang }) {
   const text = sliderContent[lang]
   const trackRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [canPrev, setCanPrev] = useState(false)
+  const [canNext, setCanNext] = useState(true)
+  const total = text.slides.length
 
-  function scrollTrack(direction) {
-    if (!trackRef.current) return
-
-    const width = trackRef.current.clientWidth * 0.82
-    trackRef.current.scrollBy({
-      left: direction * width,
-      behavior: 'smooth'
+  const updateState = useCallback(() => {
+    const track = trackRef.current
+    if (!track) return
+    const cards = [...track.children]
+    const trackLeft = track.getBoundingClientRect().left
+    let closest = 0
+    let best = Infinity
+    cards.forEach((card, i) => {
+      const d = Math.abs(card.getBoundingClientRect().left - trackLeft)
+      if (d < best) {
+        best = d
+        closest = i
+      }
     })
+    const maxScroll = track.scrollWidth - track.clientWidth
+    setCanPrev(track.scrollLeft > 4)
+    setCanNext(track.scrollLeft < maxScroll - 4)
+    setActiveIndex(track.scrollLeft >= maxScroll - 4 ? cards.length - 1 : closest)
+  }, [])
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return undefined
+    updateState()
+    track.addEventListener('scroll', updateState, { passive: true })
+    window.addEventListener('resize', updateState)
+    return () => {
+      track.removeEventListener('scroll', updateState)
+      window.removeEventListener('resize', updateState)
+    }
+  }, [updateState])
+
+  // Move one card left/right from the CURRENT scroll position (not from the
+  // highlighted card), so going back works even after reaching the far right.
+  function scrollTrack(direction) {
+    const track = trackRef.current
+    if (!track) return
+    const current = track.scrollLeft
+    const trackLeft = track.getBoundingClientRect().left
+    const offsets = [...track.children].map(
+      (card) => Math.round(card.getBoundingClientRect().left - trackLeft + current)
+    )
+    const target =
+      direction > 0
+        ? offsets.find((left) => left > current + 4)
+        : [...offsets].reverse().find((left) => left < current - 4)
+    track.scrollTo({ left: target ?? (direction > 0 ? track.scrollWidth : 0), behavior: 'smooth' })
   }
+
+  function handleKey(event) {
+    if (event.key === 'ArrowRight') {
+      event.preventDefault()
+      scrollTrack(1)
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault()
+      scrollTrack(-1)
+    }
+  }
+
+  const progress = ((activeIndex + 1) / total) * 100
 
   return (
     <section className="section showcase-section" id="equipment">
       <div className="section-inner showcase-shell">
-        <div className="showcase-topbar">
+        <div className="showcase-heading-row">
           <div className="section-heading showcase-heading">
             <span className="section-kicker">{text.kicker}</span>
             <h2>{text.title}</h2>
             <p>{text.description}</p>
           </div>
-
-          <div className="carousel-controls" aria-label="Trailer carousel controls">
-            <button type="button" className="carousel-btn" onClick={() => scrollTrack(-1)} aria-label={text.previous}>
-              <span aria-hidden="true">&larr;</span>
-            </button>
-            <button type="button" className="carousel-btn" onClick={() => scrollTrack(1)} aria-label={text.next}>
-              <span aria-hidden="true">&rarr;</span>
-            </button>
-          </div>
         </div>
 
-        <div className="showcase-track" ref={trackRef}>
-          {text.slides.map((item) => (
-            <article className="trailer-card" key={item.title}>
-              <div className="trailer-image-wrap">
-                <img className="trailer-image" src={item.image} alt={`${item.title} trailer`} />
-                <span className="trailer-label">{item.title}</span>
-              </div>
-              <div className="trailer-copy">
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
-              </div>
-            </article>
-          ))}
+        <div className="showcase-stage">
+          <div
+            className="showcase-track"
+            ref={trackRef}
+            tabIndex={0}
+            onKeyDown={handleKey}
+            aria-label={text.kicker}
+          >
+            {text.slides.map((item, i) => (
+              <article className={`trailer-card${i === activeIndex ? ' is-active' : ''}`} key={item.title}>
+                <img className="trailer-image" src={item.image} alt={`${item.title} trailer`} loading="lazy" />
+                <div className="trailer-shade" aria-hidden="true" />
+                <span className="trailer-index">{String(i + 1).padStart(2, '0')}</span>
+                <div className="trailer-copy">
+                  <h3>{item.title}</h3>
+                  <p>{item.detail}</p>
+                  <a className="trailer-link" href="#contact">
+                    {lang === 'ES' ? 'Hablar con despacho' : 'Get dispatched'}
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="showcase-controls">
+            <div className="showcase-counter" aria-live="polite">
+              <strong>{String(activeIndex + 1).padStart(2, '0')}</strong>
+              <span>/ {String(total).padStart(2, '0')}</span>
+            </div>
+
+            <div className="showcase-progress" aria-hidden="true">
+              <span style={{ width: `${progress}%` }} />
+            </div>
+
+            <div className="carousel-controls" aria-label="Trailer carousel controls">
+              <button
+                type="button"
+                className="carousel-btn"
+                onClick={() => scrollTrack(-1)}
+                disabled={!canPrev}
+                aria-label={text.previous}
+              >
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button
+                type="button"
+                className="carousel-btn"
+                onClick={() => scrollTrack(1)}
+                disabled={!canNext}
+                aria-label={text.next}
+              >
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="reviews-block">
